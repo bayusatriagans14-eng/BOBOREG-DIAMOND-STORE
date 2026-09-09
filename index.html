@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEK BAYU STORE - Top Up Mobile Legends</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a href="#home" class="logo">⚡ LEK BAYU <strong>STORE</strong></a>
+    <nav>
+      <a href="#home">Home</a><a href="#topup">Top Up</a><a href="#skins">Skin</a><a href="#promo">Promo</a><a href="#kontak">Kontak</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge">⚡ LEK BAYU STORE</div>
+    <h1>TOP UP <span>MLBB</span><br>CEPAT & AMAN</h1>
+    <p>Top Up Diamond Mobile Legends, lihat katalog skin dan pesan langsung melalui WhatsApp admin.</p>
+    <div class="hero-buttons"><a href="#topup" class="btn primary">💎 TOP UP SEKARANG</a><a href="#skins" class="btn secondary">🎨 LIHAT SKIN</a></div>
+    <div class="trust"><div>⚡ <span>Proses Cepat</span></div><div>🔒 <span>Aman</span></div><div>📱 <span>Via WhatsApp</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="topup">
+<div class="container">
+  <div class="section-title"><span>💎 TOP UP</span><h2>Top Up Diamond</h2><p>Pilih jumlah Diamond yang ingin Anda beli.</p></div>
+  <div class="topup-box">
+    <div class="form-box">
+      <label>ID Game</label><input id="gameId" placeholder="Contoh: 123456789">
+      <label>Server ID</label><input id="serverId" placeholder="Contoh: 1234">
+      <label>Nomor WhatsApp</label><input id="customerPhone" placeholder="08xxxxxxxxxx">
+      <label>Pilih Diamond</label>
+      <div class="diamond-grid">
+        <button onclick="selectDiamond(5,2000,this)"><b>5 💎</b><small>Rp2.000</small></button>
+        <button onclick="selectDiamond(12,4000,this)"><b>12 💎</b><small>Rp4.000</small></button>
+        <button onclick="selectDiamond(28,8000,this)"><b>28 💎</b><small>Rp8.000</small></button>
+        <button onclick="selectDiamond(59,16000,this)"><b>59 💎</b><small>Rp16.000</small></button>
+        <button onclick="selectDiamond(86,23000,this)"><b>86 💎</b><small>Rp23.000</small></button>
+        <button onclick="selectDiamond(172,45000,this)"><b>172 💎</b><small>Rp45.000</small></button>
+        <button onclick="selectDiamond(257,67000,this)"><b>257 💎</b><small>Rp67.000</small></button>
+        <button onclick="selectDiamond(344,88000,this)"><b>344 💎</b><small>Rp88.000</small></button>
+      </div>
+      <button class="order-btn" onclick="orderDiamond()">💎 BELI DIAMOND</button>
+    </div>
+    <div class="topup-info"><div class="info-icon">💎</div><h3>Cara Top Up</h3><ol><li>Masukkan ID Game.</li><li>Masukkan Server ID.</li><li>Pilih jumlah Diamond.</li><li>Klik tombol beli.</li><li>Lanjutkan pesanan melalui WhatsApp.</li></ol><div class="warning">⚠️ <span>LEK BAYU STORE tidak pernah meminta password akun game.</span></div></div>
+  </div>
+</div>
+</section>
+
+<section class="section dark-section" id="skins">
+<div class="container">
+  <div class="section-title"><span>🎨 KOLEKSI SKIN</span><h2>Skin Mobile Legends</h2><p>Cari dan lihat katalog skin.</p></div>
+  <div class="search-area"><input id="searchSkin" placeholder="🔎 Cari hero atau skin..." onkeyup="filterSkins()"><select id="categoryFilter" onchange="filterSkins()"><option value="all">Semua Kategori</option><option value="starlight">StarLight</option><option value="collector">Collector</option><option value="epic">Epic</option><option value="limited">Limited</option><option value="special">Special</option></select></div>
+  <div class="skin-grid" id="skinGrid">
+    <div class="skin-card" data-name="hanzo fangs of slaughter" data-category="starlight"><div class="skin-image hanzo"><span class="skin-tag">STARLIGHT</span><span class="skin-emoji">⚔️</span></div><div class="skin-content"><small>HANZO</small><h3>Fangs of Slaughter</h3><p>⭐ StarLight</p><button onclick="addSkin('Hanzo - Fangs of Slaughter')">🛒 Pesan Skin</button></div></div>
+    <div class="skin-card" data-name="nana anniversary edition" data-category="limited"><div class="skin-image nana"><span class="skin-tag">LIMITED</span><span class="skin-emoji">🐱</span></div><div class="skin-content"><small>NANA</small><h3>Anniversary Edition</h3><p>🔥 Limited</p><button onclick="addSkin('Nana - Anniversary Edition')">🛒 Pesan Skin</button></div></div>
+    <div class="skin-card" data-name="chou collector skin" data-category="collector"><div class="skin-image chou"><span class="skin-tag">COLLECTOR</span><span class="skin-emoji">👊</span></div><div class="skin-content"><small>CHOU</small><h3>Collector Skin</h3><p>💎 Collector</p><button onclick="addSkin('Chou - Collector Skin')">🛒 Pesan Skin</button></div></div>
+    <div class="skin-card" data-name="layla epic collection" data-category="epic"><div class="skin-image layla"><span class="skin-tag">EPIC</span><span class="skin-emoji">🔫</span></div><div class="skin-content"><small>LAYLA</small><h3>Epic Collection</h3><p>⭐ Epic</p><button onclick="addSkin('Layla - Epic Collection')">🛒 Pesan Skin</button></div></div>
+    <div class="skin-card" data-name="gusion special edition" data-category="special"><div class="skin-image gusion"><span class="skin-tag">SPECIAL</span><span class="skin-emoji">🗡️</span></div><div class="skin-content"><small>GUSION</small><h3>Special Edition</h3><p>⭐ Special</p><button onclick="addSkin('Gusion - Special Edition')">🛒 Pesan Skin</button></div></div>
+    <div class="skin-card" data-name="fanny limited collection" data-category="limited"><div class="skin-image fanny"><span class="skin-tag">LIMITED</span><span class="skin-emoji">⚡</span></div><div class="skin-content"><small>FANNY</small><h3>Limited Collection</h3><p>🔥 Limited</p><button onclick="addSkin('Fanny - Limited Collection')">🛒 Pesan Skin</button></div></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="promo"><div class="container"><div class="section-title"><span>🎁 PROMO</span><h2>Promo LEK BAYU STORE</h2></div><div class="promo-grid"><div class="promo-card"><div>💎</div><h3>Bonus Diamond</h3><p>Dapatkan promo Diamond tertentu selama periode promo.</p></div><div class="promo-card"><div>🎁</div><h3>Promo Member</h3><p>Dapatkan penawaran khusus untuk pelanggan.</p></div><div class="promo-card"><div>⚡</div><h3>Proses Cepat</h3><p>Pesanan diproses setelah pembayaran dikonfirmasi.</p></div></div></div></section>
+
+<section class="section faq-section"><div class="container"><div class="section-title"><span>❓ FAQ</span><h2>Pertanyaan Umum</h2></div><div class="faq"><details><summary>Apakah perlu memberikan password akun?</summary><p>Tidak. LEK BAYU STORE tidak membutuhkan password akun Mobile Legends.</p></details><details><summary>Apa yang harus diberikan?</summary><p>Untuk top up, cukup masukkan User ID dan Server ID dengan benar.</p></details><details><summary>Bagaimana cara pembayaran?</summary><p>Setelah membuat pesanan, Anda akan diarahkan ke WhatsApp admin untuk mendapatkan instruksi pembayaran.</p></details></div></div></section>
+
+<section class="contact" id="kontak"><div class="container"><h2>Butuh Bantuan?</h2><p>Hubungi admin LEK BAYU STORE.</p><a id="contactWhatsapp" class="btn whatsapp" href="#">💬 CHAT ADMIN</a></div></section>
+
+<footer><div class="container footer-content"><div><h2>⚡ LEK BAYU STORE</h2><p>Top Up Mobile Legends cepat dan mudah.</p></div><div><h4>MENU</h4><a href="#home">Home</a><a href="#topup">Top Up</a><a href="#skins">Skin</a><a href="#promo">Promo</a></div><div><h4>INFORMASI</h4><a href="#kontak">Hubungi Admin</a><a href="#faq">FAQ</a></div></div><div class="copyright">© 2026 LEK BAYU STORE. All Rights Reserved.</div></footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)"><div class="cart" onclick="event.stopPropagation()"><button class="close" onclick="closeCart()">×</button><h2>🛒 Pesanan</h2><div id="cartItems"><p class="empty">Belum ada pesanan.</p></div><button class="order-btn" onclick="orderCart()">💬 PESAN VIA WHATSAPP</button></div></div>
+<script src="script.js"></script>
+</body>
+</html>
